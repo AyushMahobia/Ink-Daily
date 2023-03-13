@@ -5,7 +5,7 @@ const mongoUrl = "mongodb://127.0.0.1:27017/inotebook";
 const connectToMongo = () => {
     mongoose.connect(mongoUrl).then(()=>{
         console.log("Connected to mogodb successfully");
-    }).catch(error=>console.log("there is an  error"))
+    }).catch(error=>console.log("Not able to connect with the database"))
     
 }
 

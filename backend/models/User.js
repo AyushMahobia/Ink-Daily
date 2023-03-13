@@ -20,5 +20,5 @@ const UserSchema = new mongoose.Schema({
     }
 })
 const User = mongoose.model('user', UserSchema);
-User.createIndexes();
+// User.createIndexes(); not a good way to add uniqueness
 module.exports = User
