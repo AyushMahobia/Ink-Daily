@@ -4,7 +4,7 @@ const fetchuser = require('../middleware/fetchuser');
 const { body, validationResult } = require('express-validator');
 const Notes = require('../models/Notes');
 
-// Route1:- add new notes using:- http://localhost:5000/api/notes/addnote login required
+// Route1 (Create):- add new notes using:- http://localhost:5000/api/notes/addnote login required
 router.post('/addnote', fetchuser, [
     body('title', "Minium length of Tilte should be 3").isLength({ min: 3 }),
     body('description', "Minium length of Description should be 5").isLength({ min: 5 })
@@ -26,7 +26,7 @@ router.post('/addnote', fetchuser, [
 
 //-----XXX-----XXX--------XXX---------XXX------XXX------XXX-------XXX------XXX------
 
-// Route2:- get all notes using:- http://localhost:5000/api/notes/fetchallnotes login required
+// Route2 (Read):- get all notes using:- http://localhost:5000/api/notes/fetchallnotes login required
 router.get('/fetchallnotes', fetchuser, async (req, res) => {
     try {
         const notes = await Notes.find({ user: req.user.id })
@@ -39,7 +39,7 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
 
 //-----XXX-----XXX--------XXX---------XXX------XXX------XXX-------XXX------XXX------
 
-// Route3:- Update note using:- http://localhost:5000/api/notes/updatenote login required
+// Route3 (Update):- Update an existing note using:- PUT http://localhost:5000/api/notes/updatenote login required
 router.put('/updatenote/:id', fetchuser, async (req, res) => {
     try {
         const { title, description, tags } = req.body;
@@ -58,7 +58,29 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
         if (notes.user.toString() !== req.user.id) { return res.status(400).send("Not Allowed") };
 
         notes = await Notes.findByIdAndUpdate(req.params.id, { $set: newNotes }, { new: true })
-        res.json(notes);
+        res.json(notes)
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send({ error: "Internal server error" })
+    }
+})
+
+//-----XXX-----XXX--------XXX---------XXX------XXX------XXX-------XXX------XXX------
+
+// Route4 (Delete):- Delete an existing note using:- DELETE http://localhost:5000/api/notes/deletenote login required
+router.delete('/deletenote/:id', fetchuser, async (req, res) => {
+    try {
+        //Find the note to be deleted and delete it
+        let notes = await Notes.findById(req.params.id);
+
+        //If original note not found
+        if (!notes) { return res.status(404).send("Notes not found") };
+
+        ////Allow deletion onlyif user owns this note
+        if (notes.user.toString() !== req.user.id) { return res.status(401).send("Not Allowed") };
+
+        notes = await Notes.findByIdAndDelete(req.params.id)
+        res.json({"Success":"Note has been successfully deleted"})
     } catch (error) {
         console.log(error.message)
         res.status(500).send({ error: "Internal server error" })
