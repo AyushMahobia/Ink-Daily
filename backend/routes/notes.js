@@ -26,7 +26,7 @@ router.post('/addnote', fetchuser, [
 
 //-----XXX-----XXX--------XXX---------XXX------XXX------XXX-------XXX------XXX------
 
-// Route2:- get all notes using:- http://localhost:5000/api/notes/fetchallnotesr login required
+// Route2:- get all notes using:- http://localhost:5000/api/notes/fetchallnotes login required
 router.get('/fetchallnotes', fetchuser, async (req, res) => {
     try {
         const notes = await Notes.find({ user: req.user.id })
@@ -37,4 +37,31 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
     }
 })
 
+//-----XXX-----XXX--------XXX---------XXX------XXX------XXX-------XXX------XXX------
+
+// Route3:- Update note using:- http://localhost:5000/api/notes/updatenote login required
+router.put('/updatenote/:id', fetchuser, async (req, res) => {
+    try {
+        const { title, description, tags } = req.body;
+        let newNotes = {};
+        if (title) { newNotes.title = title }
+        if (description) { newNotes.description = description }
+        if (tags) { newNotes.tags = tags }
+
+        //Find the note to be updated and update it
+        let notes = await Notes.findById(req.params.id);
+
+        //If original note not found
+        if (!notes) { return res.status(400).send("Notes not found") };
+
+        //If user id of both notes and user not match
+        if (notes.user.toString() !== req.user.id) { return res.status(400).send("Not Allowed") };
+
+        notes = await Notes.findByIdAndUpdate(req.params.id, { $set: newNotes }, { new: true })
+        res.json(notes);
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send({ error: "Internal server error" })
+    }
+})
 module.exports = router
