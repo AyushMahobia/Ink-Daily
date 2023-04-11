@@ -5,7 +5,7 @@ import AddNote from './AddNote'
 import { useNavigate } from 'react-router-dom';
 
 const Notes = (props) => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const {showAlert} = props;
   const context = useContext(noteContext);
   const { notes, getNotes, editNote } = context;
@@ -16,7 +16,7 @@ const Notes = (props) => {
       getNotes();
     }
     else{
-      history("/login")
+      navigate("/login")
     }
     // eslint-disable-next-line
   }, [])
