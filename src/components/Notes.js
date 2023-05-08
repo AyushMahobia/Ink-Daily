@@ -55,7 +55,7 @@ const Notes = (props) => {
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <h5 className="modal-title" id="exampleModalLongTitle">Update Note</h5>
               <button type="button" className="close border-0 bg-transparent" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" style={{ fontSize: "2rem" }}>&times;</span>
               </button>
