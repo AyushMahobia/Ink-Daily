@@ -3,19 +3,20 @@ import noteContext from '../context/notes/noteContext'
 import NoteItem from './NoteItem';
 import AddNote from './AddNote'
 import { useNavigate } from 'react-router-dom';
+import NoteModal from './NoteModal';
 
 const Notes = (props) => {
   const navigate = useNavigate();
-  const {showAlert} = props;
+  const { showAlert } = props;
   const context = useContext(noteContext);
-  const { notes, getNotes, editNote } = context;
-  const [note, setNote] = useState({id: "", etitle: "", edescription: "", etags: "" })
+  const { notes, getNotes, editNote, deleteNote } = context;
+  const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etags: "" })
 
   useEffect(() => {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       getNotes();
     }
-    else{
+    else {
       navigate("/login")
     }
     // eslint-disable-next-line
@@ -26,9 +27,9 @@ const Notes = (props) => {
 
   const updateNote = (currentnote) => {
     ref.current.click();
-    setNote({id: currentnote._id, etitle: currentnote.title, edescription: currentnote.description, etags: currentnote.tags})
-    console.log(note.id);
-   
+    setNote({ id: currentnote._id, etitle: currentnote.title, edescription: currentnote.description, etags: currentnote.tags })
+    // console.log(note.id);
+
   }
 
 
@@ -44,9 +45,15 @@ const Notes = (props) => {
     showAlert("Updated Successfully", "success")
   }
 
+  const [popupContent, setPopupContent] = useState([]);
+  const handlePopUp = (info) => {
+    setPopupContent([info]);
+    setClose(!close)
+  }
+  const [close, setClose] = useState(false)
   return (
     <>
-      <AddNote showAlert={showAlert}/>
+      <AddNote showAlert={showAlert} />
       <button type="button" ref={ref} className="btn btn-primary d-none" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
       </button>
@@ -85,11 +92,25 @@ const Notes = (props) => {
       </div>
       <div className="row my-3  mx-2">
         <h2 className="my-3">Your Notes</h2>
+        <form className="d-flex my-2">
+          <input className="form-control me-2" type="search" placeholder="Search by tag" aria-label="Search" />
+          <button className="btn btn-outline-success" type="submit">Search</button>
+        </form>
         {notes.map(note => {
           return (
-            <NoteItem key={note._id} updateNote={updateNote} note={note} showAlert={showAlert}/>
+            <NoteItem key={note._id} updateNote={updateNote} note={note} showAlert={showAlert} handlePopup={handlePopUp} />
           )
         })}
+      </div>
+      <div className={`preview-card ${close ? "active-one" : ""}`}>
+        <div className={`preview ${close ? "active-two" : ""}`}>
+          <h3 className='text-end close-sign' onClick={() => setClose(!close)}><i className="fa-solid fa-xmark text-end"></i></h3>
+          {popupContent.map((pop, ind) => {
+            return (
+              <NoteModal pop={pop} id={pop._id} des={pop.description} title={pop.title} key={ind} />
+            )
+          })}
+        </div>
       </div>
     </>
 

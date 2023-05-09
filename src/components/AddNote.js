@@ -18,12 +18,22 @@ const AddNote = (props) => {
         showAlert("Added note", "success")
 
     }
+    const [open, setOpen] = useState(true)
+    const handleOpen ={
+        visibility:"hidden",
+        display:"none"
+    }
+    const handleClose ={
+        visibility:"visible",
+        display:"block"
+    }
     return (
         <div>
             <div className='container my-3'>
+                <button type='button' className='btn btn-warning mx-2 text-uppercase' onClick={()=> setOpen(!open)}>{open? <>	&#43;Add note</> : <>&minus;Close</>}</button>
+                <div className="container my-3 add-btn" style={open ? handleOpen : handleClose}>
                 <h1>Add Note</h1>
-                <div className="container my-3">
-                    <form>
+                    <form >
                         <div className="form-group my-3">
                             <label forhtml="title">Title</label>
                             <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter a title" onChange={onChange} value={note.title}/>

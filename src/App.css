@@ -1,0 +1,35 @@
+.preview-card{
+    position: fixed;
+    top: 0; left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    color: beige;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.preview-card.active-one{
+    display: flex;
+}
+.preview-card .preview{
+    width: 350px;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: rgb(245, 242, 237);
+    border: 1px solid;
+    color: #101010;
+    border-radius: 8px;
+    position: relative;
+}
+.close-sign{
+    position: absolute;
+    top: 0.3rem;
+    right: 0.8rem;
+}
+.preview-card .preview.active-two{
+    display: inline-block;
+}
+.cursor{
+    cursor: pointer;
+}
