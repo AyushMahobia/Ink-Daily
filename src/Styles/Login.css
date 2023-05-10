@@ -1,0 +1,21 @@
+
+@media only screen and (min-width: 768px){
+    #sign-up-button{
+        text-align: center;
+        margin: 3rem;
+        position: relative;
+        left: -5.3rem;
+    }
+    #password-login{
+        float: left;
+        position: relative;
+        left: 3rem;
+    }
+}
+#login-modal{
+    background-image: -moz-linear-gradient( -90deg, rgb(171, 236, 102) 0%, rgb(243, 161, 131) 100%);
+		background-image: -webkit-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+		background-image: -ms-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+		background-image: linear-gradient( -90deg, rgb(92, 80, 204) 0%, rgb(200, 131, 243) 100%);
+		width: 90%;
+}
