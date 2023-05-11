@@ -33,28 +33,7 @@ const Signup = (props) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
   return (
-    // <div className='container'>
-    //   <h2 className='text-center'>Singup for Ink-Daily</h2>
-    //   <form onSubmit={handleSubmit}>
-    //     <div className="form-group my-3">
-    //       <label htmlFor="name">Name</label>
-    //       <input type="text" className="form-control" id="name" name="name" placeholder="Enter a name" onChange={onChange} required />
-    //     </div>
-    //     <div className="form-group my-3">
-    //       <label htmlFor="email">Email address</label>
-    //       <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={onChange} required />
-    //       <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-    //     </div>
-    //     <div className="form-group my-3">
-    //       <label htmlFor="password">Password</label>
-    //       <input type="password" className="form-control" id="password" name="password" placeholder="Password" onChange={onChange} minLength={5} required />
-    //     </div>
-    //     <button type="submit" className="btn btn-primary">Submit</button>
-    //   </form>
-    // </div>
     <div className="sign-up-modal">
-      {/* <div id="close-modal-button">
-		  </div> */}
       <div className="logo-container">
         <svg className="logo" width="94.4px" height="56px">
           <g>
@@ -80,7 +59,7 @@ const Signup = (props) => {
             <input type="checkbox" value="true" /> Keep me signed in</label>
         </div>
 
-        <input  type="submit" value="Sign Up" />
+        <input type="submit" value="Sign Up" />
 
         <p>Already have an account? <Link to="/login" className='a'>Sign in</Link></p>
 

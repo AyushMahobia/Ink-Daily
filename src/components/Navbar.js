@@ -29,9 +29,9 @@ export default function Navbar() {
                     </ul>
                 </div>
                 {!localStorage.getItem('token') ? <div className="d-flex">
-                    <Link className="btn btn-info mx-1" to="/signup">Sign up</Link>
-                    <Link className="btn btn-info mx-1" to="/login">Login</Link>
-                </div> : <button className='btn btn-primary' onClick={handleLogout}>Log out</button>}
+                    <Link className="btn btn-info mx-1 btn-info" to="/signup">Sign up</Link>
+                    <Link className="btn btn-info mx-1 btn-primary" to="/login">Login</Link>
+                </div> : <button className='btn btn-danger' onClick={handleLogout}>Log out</button>}
             </div>
         </nav>
     )

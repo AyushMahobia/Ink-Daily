@@ -54,46 +54,51 @@ const Notes = (props) => {
   return (
     <>
       <AddNote showAlert={showAlert} />
+
+      {/* update modal */}
       <button type="button" ref={ref} className="btn btn-primary d-none" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
       </button>
 
       <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
-          <div className="modal-content">
+          <div className="modal-content update">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLongTitle">Update Note</h5>
-              <button type="button" className="close border-0 bg-transparent" data-dismiss="modal" aria-label="Close">
+              <button type="button" className="close border-0 bg-transparent text-light" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" style={{ fontSize: "2rem" }}>&times;</span>
               </button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body update">
               <form>
                 <div className="form-group my-3">
-                  <label forhtml="etitle">Title</label>
+                  <label htmlFor="etitle">Title</label>
                   <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" placeholder="Enter a title" onChange={onChange} />
                 </div>
-                <div className="form-group my-3">
-                  <label forhtml="edescription">Description</label>
-                  <input type="text" className="form-control" id="edescription" name="edescription" placeholder="Add a description" value={note.edescription} onChange={onChange} />
+                <div class="form-group my-3">
+                  <label htmlFor="edescription">Description</label>
+                  <textarea class="form-control" id="edescription" rows="3" name="edescription" placeholder="Add a description" value={note.edescription} onChange={onChange}></textarea>
                 </div>
                 <div className="form-group my-3">
-                  <label forhtml="etags">Tags</label>
+                  <label htmlFor="etags">Tags</label>
                   <input type="text" className="form-control" id="etags" value={note.etags} name="etags" placeholder="Add a tags" onChange={onChange} />
                 </div>
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" ref={refClose} className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary" onClick={handleClick}>Save changes</button>
+              <button type="button" ref={refClose} className="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-warning" onClick={handleClick}>Save changes</button>
             </div>
           </div>
         </div>
       </div>
-      <div className="row my-3  mx-2">
+
+      {/* Your notes */}
+      <div className="row my-3 mx-2">
         <h2 className="my-3">Your Notes</h2>
         <form className="d-flex my-2">
-          <input className="form-control me-2" type="search" placeholder="Search by tag" aria-label="Search" />
+          <input className="form-control me-2" type="search" placeholder="Search by tag" aria-label="Search" style={{background: "antiquewhite",
+                        color: "#333"}}/>
           <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
         {notes.map(note => {
@@ -102,6 +107,8 @@ const Notes = (props) => {
           )
         })}
       </div>
+
+      {/* Note modal */}
       <div className={`preview-card ${close ? "active-one" : ""}`}>
         <div className={`preview ${close ? "active-two" : ""}`}>
           <h3 className='text-end close-sign' onClick={() => setClose(!close)}><i className="fa-solid fa-xmark text-end"></i></h3>
