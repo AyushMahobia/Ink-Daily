@@ -39,10 +39,6 @@ const AddNote = (props) => {
                             <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter a title" onChange={onChange} value={note.title} style={{background: "antiquewhite",
                         color: "#333"}}/>
                         </div>
-                        {/* <div className="form-group my-3">
-                            <label forhtml="description">Description</label>
-                            <input type="text" className="form-control" id="description" name="description" placeholder="Add a description" onChange={onChange} value={note.description}/>
-                        </div> */}
                         <div class="form-group my-3">
                             <label htmlFor="description">Description</label>
                             <textarea class="form-control" id="description" rows="3" name="description" placeholder="Add a description" value={note.description} onChange={onChange} style={{background: "antiquewhite",
