@@ -26,6 +26,9 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about">About</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className='nav-link' to="http://localhost:3001" target='_blank'>Edit Text</Link>
+                        </li>
                     </ul>
                 </div>
                 {!localStorage.getItem('token') ? <div className="d-flex">
