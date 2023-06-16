@@ -10,7 +10,7 @@ const AddNote = (props) => {
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
-
+    
     const handleClick = (e) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tags)
