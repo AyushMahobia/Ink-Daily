@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+Project Name:- iNoteBook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Description:-
+iNotebook is a MERN-based web app that lets you add, update, delete, and read notes. It has a secure signup and login modal and a user-friendly interface for organizing notes into categories. An efficient tool for managing notes securely.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Output:-
+    1. Login/SignUp Modal
+    ![Screenshot (42)](https://github.com/AyushMahobia/Ink-Daily/assets/74254072/34b5cfb1-c681-4b3b-985c-0901e62b3e5e) 
+    2. Website overview after successfully login 
+    ![Screenshot (39)](https://github.com/AyushMahobia/Ink-Daily/assets/74254072/921b9407-32b3-4321-9952-65caea02f50e)
+    3. Add note modal
+    ![Screenshot (40)](https://github.com/AyushMahobia/Ink-Daily/assets/74254072/2a2d24b9-0f48-40f2-8488-dd0929013bfa)
+    4. Update existing note modal
+    ![Screenshot (43)](https://github.com/AyushMahobia/Ink-Daily/assets/74254072/c27262d2-92c7-4c8f-b864-a951da9529b0)
+    5. Read complete note
+    ![Screenshot (41)](https://github.com/AyushMahobia/Ink-Daily/assets/74254072/10271687-f078-4f34-9c76-e9051b59b7d1)
+    6.
