@@ -1,7 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import noteContext from '../context/notes/noteContext'
-import NoteModal from './NoteModal';
-import { useSearchParams } from 'react-router-dom';
 
 const NoteItem = (props) => {
     const { showAlert, handlePopup } = props;
