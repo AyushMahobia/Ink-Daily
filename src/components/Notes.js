@@ -46,11 +46,11 @@ const Notes = (props) => {
   }
 
   const [popupContent, setPopupContent] = useState([]);
+  const [close, setClose] = useState(false)
   const handlePopUp = (info) => {
     setPopupContent([info]);
     setClose(!close)
   }
-  const [close, setClose] = useState(false)
   return (
     <>
       <AddNote showAlert={showAlert} />
@@ -109,8 +109,8 @@ const Notes = (props) => {
       </div>
 
       {/* Note modal */}
-      <div className={`preview-card ${close ? "active-one" : ""}`}>
-        <div className={`preview ${close ? "active-two" : ""}`}>
+      <div className={`preview-card ${close && "active-one"}`}>
+        <div className={`preview ${close && "active-two"}`}>
           <h3 className='text-end close-sign' onClick={() => setClose(!close)}><i className="fa-solid fa-xmark text-end"></i></h3>
           {popupContent.map((pop, ind) => {
             return (

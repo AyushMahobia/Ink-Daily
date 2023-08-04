@@ -30,20 +30,6 @@ const NoteItem = (props) => {
                     </div>
                 </div>
             </div>
-
-            {/* <div className="preview-card">
-                <div className="preview">
-                    <h3 className='text-end close-sign'><i className="fa-solid fa-xmark text-end"></i></h3>
-                    <div className="d-flex align-item-center justify-content-between my-3">
-                        <h5 className="card-title"></h5>
-                        <div className="">
-                            <i className="fa-solid fa-trash mx-2" onClick={() => { deleteNote(note._id); showAlert("Deleted Successfully", "success") }}></i>
-                            <i className="fa-solid fa-pen-to-square" onClick={() => (updateNote(note))}></i>
-                        </div>
-                    </div>
-                    <p className="card-text"></p>
-                </div>
-            </div> */}
         </>
 
 
