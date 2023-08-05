@@ -40,9 +40,9 @@ const AddNote = (props) => {
                                 color: "#333"
                             }} />
                         </div>
-                        <div class="form-group my-3">
+                        <div className="form-group my-3">
                             <label htmlFor="description">Description</label>
-                            <textarea class="form-control" id="description" rows="3" name="description" placeholder="Add a description" value={note.description} onChange={onChange} style={{
+                            <textarea className="form-control" id="description" rows="3" name="description" placeholder="Add a description" value={note.description} onChange={onChange} style={{
                                 background: "antiquewhite",
                                 color: "#333"
                             }}></textarea>

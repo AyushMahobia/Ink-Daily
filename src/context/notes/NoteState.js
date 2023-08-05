@@ -3,8 +3,24 @@ import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
   const [notes, setNotes] = useState([])
+  const [user, setUser] = useState({});
   const host = "http://localhost:5000";
-  
+
+  //Get users
+  const getUser = async () => {
+    const response = await fetch(`${host}/api/auth/getuser`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem('token')
+      }
+    });
+    const json = await response.json();
+    console.log(json)
+    setUser(json);
+    
+  }
+
   // Get all notes
   const getNotes = async () => {
     //API CALL
@@ -18,7 +34,7 @@ const NoteState = (props) => {
     });
     const json = await response.json();
     console.log(json)
-    
+
     //frontend part
     setNotes(json)
   }
@@ -33,7 +49,7 @@ const NoteState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token')
       },
-      body: JSON.stringify({title, description, tags}), // body data type must match "Content-Type" header
+      body: JSON.stringify({ title, description, tags }), // body data type must match "Content-Type" header
     });
     const json = await response.json();
     console.log(json)
@@ -71,7 +87,7 @@ const NoteState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token')
       },
-      body: JSON.stringify({title, description, tags})
+      body: JSON.stringify({ title, description, tags })
     });
     const json = await response.json();
     console.log(json)
@@ -90,7 +106,7 @@ const NoteState = (props) => {
     setNotes(newNotes)
   }
   return (
-    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes }}>
+    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes, user, getUser }}>
       {props.children}
     </NoteContext.Provider>
   )

@@ -100,7 +100,7 @@ router.post('/login', [
 //-----XXX-----XXX--------XXX---------XXX------XXX------XXX-------XXX------XXX------
 
 // Route 3:- Get loggedin user details using:- http://localhost:5000/api/auth/getuser  login required
-router.post('/getuser', fetchuser, async (req, res) => {
+router.get('/getuser', fetchuser, async (req, res) => {
     try {
         const userId = req.user.id;
         const userDetails = await User.findById(userId).select("-password");

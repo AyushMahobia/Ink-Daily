@@ -75,9 +75,9 @@ const Notes = (props) => {
                   <label htmlFor="etitle">Title</label>
                   <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" placeholder="Enter a title" onChange={onChange} />
                 </div>
-                <div class="form-group my-3">
+                <div className="form-group my-3">
                   <label htmlFor="edescription">Description</label>
-                  <textarea class="form-control" id="edescription" rows="3" name="edescription" placeholder="Add a description" value={note.edescription} onChange={onChange}></textarea>
+                  <textarea className="form-control" id="edescription" rows="3" name="edescription" placeholder="Add a description" value={note.edescription} onChange={onChange}></textarea>
                 </div>
                 <div className="form-group my-3">
                   <label htmlFor="etags">Tags</label>
